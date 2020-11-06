@@ -134,7 +134,7 @@
 			"metadata": {
 				"artifactsBaseUrl": ""
 			},
-			"defaultValue": "https://raw.githubusercontent.com/aleols/pan-vmseries-8-interfaces/main"
+			"defaultValue": "https://raw.githubusercontent.com/aleols/pan-vmseries-4-interfaces/main"
 		},
 		"virtualNetworkName": {
 			"type": "string",
@@ -516,7 +516,8 @@
 				"name": "[parameters('subnet7Name')]",
 				"properties": {
 					"addressPrefix": "[parameters('subnet7Prefix')]"
-				}
+				}			
+						
 			}]
 		}
 	},
@@ -614,6 +615,99 @@
 			}]
 		}
 	},
+	{
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/networkInterfaces",
+		"name": "[concat(variables('nicName'), '4')]",
+		"location": "[parameters('location')]",
+		"dependsOn": ["[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"],
+		"tags": {
+			"displayName": "[concat('NetworkInterfaces', '4')]"
+		},
+		"properties": {
+			"enableIPForwarding": true,
+			"ipConfigurations": [{
+				"name": "[concat('ipconfig', '4')]",
+				"properties": {
+					"privateIPAllocationMethod": "Static",
+					"privateIPAddress": "[variables('FWPrivateIPAddressExpressRoute')]",
+					"subnet": {
+						"id": "[variables(concat('subnet','4','Ref'))]"
+					}
+				}
+			}]
+		}
+	},
+	{
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/networkInterfaces",
+		"name": "[concat(variables('nicName'), '5')]",
+		"location": "[parameters('location')]",
+		"dependsOn": ["[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"],
+		"tags": {
+			"displayName": "[concat('NetworkInterfaces', '5')]"
+		},
+		"properties": {
+			"enableIPForwarding": true,
+			"ipConfigurations": [{
+				"name": "[concat('ipconfig', '5')]",
+				"properties": {
+					"privateIPAllocationMethod": "Static",
+					"privateIPAddress": "[variables('FWPrivateIPAddressFuture1')]",
+					"subnet": {
+						"id": "[variables(concat('subnet','5','Ref'))]"
+					}
+				}
+			}]
+		}
+	},
+	{
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/networkInterfaces",
+		"name": "[concat(variables('nicName'), '6')]",
+		"location": "[parameters('location')]",
+		"dependsOn": ["[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"],
+		"tags": {
+			"displayName": "[concat('NetworkInterfaces', '6')]"
+		},
+		"properties": {
+			"enableIPForwarding": true,
+			"ipConfigurations": [{
+				"name": "[concat('ipconfig', '6')]",
+				"properties": {
+					"privateIPAllocationMethod": "Static",
+					"privateIPAddress": "[variables('FWPrivateIPAddressFuture2')]",
+					"subnet": {
+						"id": "[variables(concat('subnet','6','Ref'))]"
+					}
+				}
+			}]
+		}
+	},
+	{
+		"apiVersion": "[variables('apiVersion')]",
+		"type": "Microsoft.Network/networkInterfaces",
+		"name": "[concat(variables('nicName'), '7')]",
+		"location": "[parameters('location')]",
+		"dependsOn": ["[concat('Microsoft.Network/virtualNetworks/', parameters('virtualNetworkName'))]"],
+		"tags": {
+			"displayName": "[concat('NetworkInterfaces', '7')]"
+		},
+		"properties": {
+			"enableIPForwarding": true,
+			"ipConfigurations": [{
+				"name": "[concat('ipconfig', '7')]",
+				"properties": {
+					"privateIPAllocationMethod": "Static",
+					"privateIPAddress": "[variables('FWPrivateIPAddressFuture3')]",
+					"subnet": {
+						"id": "[variables(concat('subnet','7','Ref'))]"
+					}
+				}
+			}]
+		}
+	},
+	
 	{
 		"name": "PAN-VM",
 		"type": "Microsoft.Resources/deployments",
