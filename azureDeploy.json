@@ -134,7 +134,7 @@
 			"metadata": {
 				"artifactsBaseUrl": ""
 			},
-			"defaultValue": "https://raw.githubusercontent.com/aleols/pan-vmseries-4-interfaces/master"
+			"defaultValue": "https://raw.githubusercontent.com/aleols/pan-vmseries-8-interfaces/main"
 		},
 		"virtualNetworkName": {
 			"type": "string",
