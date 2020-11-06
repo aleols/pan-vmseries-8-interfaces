@@ -5,8 +5,8 @@
 This ARM template deploys a VM-Series next generation firewall VM in an availability set of a Azure resource group. It lets you select your:
 - Username and Password, or SSH key
 - Resource Group and Storage Account inside it
-- VNET's CIDR (/16 range) with 4 subnets: Mgmt (1.0/24), Untrust (2.0/24), Trust (3.0/24), DMZ (4.0/24) 
-- Azure VM size and login for VM-Series (PAYG edition) with 4 NIC's that map to above subnets
+- VNET's CIDR (/16 range) with 8 subnets: Mgmt (1.0/24), Untrust (2.0/24), Trust (3.0/24), DMZ (4.0/24), ExpressRoute (5.0/24), and 3 futures subnets
+- Azure VM size and login for VM-Series (PAYG edition) with 8 NIC's that map to above subnets
 - Specify PAN-OS version and VM-Series model: BYOL, hourly pay-as-you-go (PAYG)Bundle 1 or Bundle 2
 - Specify the Azure Availability Set (required parameter)
 - Managed Disk by default
