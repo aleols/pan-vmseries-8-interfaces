@@ -516,9 +516,8 @@
 				"name": "[parameters('subnet7Name')]",
 				"properties": {
 					"addressPrefix": "[parameters('subnet7Prefix')]"
-				}			
-						
-			]
+				}
+			}]
 		}
 	},
 	{
